@@ -40,9 +40,9 @@ int Compare(const std::vector<int> &a, const std::vector<int> &b) {
     else if (t1 > t2)
       return 1;
     else {
-      if (size1 < size2)
+      if (size1 > size2)
         return -1;
-      else if (size1 > size2)
+      else if (size1 < size2)
         return 1;
       else
         return 0;
