@@ -1,13 +1,8 @@
-// CountSquare.cpp : This file contains the 'main' function. Program execution
-// begins and ends there.
-//
-
 #include <algorithm>
-#include <format>
-#include <iostream>
 #include <set>
 #include <string>
 #include <vector>
+#include <format>
 
 static constexpr int N = 10;
 static constexpr int e[N] = {3, 3, 3, 3, 4, 4, 7, 7, 7, 7}; // 'e' means edge
@@ -20,11 +15,12 @@ inline bool IsValid() {
          len[4];
 }
 
-inline void Append(const std::vector<int> &a, std::vector<int> &r) {
-  std::copy(a.begin(), a.end(), back_inserter(r));
+inline void Append(const std::vector<int> &a,
+                   std::vector<std::vector<int>> &r) {
+  r.emplace_back(a);
 }
 
-int Compare(const std::vector<int> &a, const std::vector<int> &b) {
+inline int Compare(const std::vector<int> &a, const std::vector<int> &b) {
   if (a[0] < b[0]) {
     return -1;
   } else if (a[0] > b[0]) {
@@ -51,7 +47,7 @@ int Compare(const std::vector<int> &a, const std::vector<int> &b) {
 }
 
 inline void Merge(const std::vector<int> &a, const std::vector<int> &b,
-                  std::vector<int> &r) {
+                  std::vector<std::vector<int>> &r) {
   const auto cmp = Compare(a, b);
   switch (cmp) {
   case -1:
@@ -66,7 +62,7 @@ inline void Merge(const std::vector<int> &a, const std::vector<int> &b,
   }
 }
 
-bool IsDuplicate() {
+inline bool IsDuplicate() {
   std::vector<int> empty;
   std::vector<std::vector<int>> s;
   for (int k = 0; k <= 4; ++k)
@@ -78,7 +74,7 @@ bool IsDuplicate() {
     }
   }
 
-  std::vector<int> r;
+  std::vector<std::vector<int>> r;
 
   if (len[1] < len[2]) {
     Merge(s[1], s[3], r);
@@ -95,7 +91,7 @@ bool IsDuplicate() {
           s[k].swap(s[j]);
           break;
         }
-      }      
+      }
     }
 
     for (int k = 1; k <= 4; ++k)
@@ -103,19 +99,25 @@ bool IsDuplicate() {
   }
 
   std::string h;
-  for (const auto i : r) {
-    h += std::format("{}", i);
+  for (int k = 0; k < 4; ++k) {
+    for (const auto &i : r[k]) {
+      h += std::format("{}", i);
+    }
+
+    if (k != 3)
+      h += '-';
   }
 
   if (std::get<1>(solutions.insert(h))) {
-    printf("solution %zu (sorted edge numbers: %s):\n", solutions.size(), h.c_str());
+    printf("solution %zu (sorted edge numbers: %s):\n", solutions.size(),
+           h.c_str());
     return false;
   }
 
   return true;
 }
 
-void PrintEdge(int edge) {
+inline void PrintEdge(int edge) {
   printf("\tedge %u: ", edge);
 
   for (int k = 0; k < N; ++k) {
@@ -127,7 +129,7 @@ void PrintEdge(int edge) {
   printf("\n");
 }
 
-void Print() {
+inline void Print() {
   for (int k = 1; k <= 4; ++k) {
     PrintEdge(k);
   }
