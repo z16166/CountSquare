@@ -30,14 +30,23 @@ int Compare(const std::vector<int> &a, const std::vector<int> &b) {
   } else if (a[0] > b[0]) {
     return 1;
   } else {
-    const auto t1 = a[a.size() - 1];
-    const auto t2 = b[b.size() - 1];
+    const auto size1 = a.size();
+    const auto size2 = b.size();
+
+    const auto t1 = a[size1 - 1];
+    const auto t2 = b[size2 - 1];
     if (t1 < t2)
       return -1;
     else if (t1 > t2)
       return 1;
-    else
-      return 0;
+    else {
+      if (size1 < size2)
+        return -1;
+      else if (size1 > size2)
+        return 1;
+      else
+        return 0;
+    }
   }
 }
 
