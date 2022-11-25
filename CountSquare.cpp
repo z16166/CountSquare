@@ -12,8 +12,7 @@ static int len[5] = {};
 static std::set<std::string> solutions;
 
 inline bool IsValid() {
-  return len[1] == len[3] && len[2] == len[4] && len[1] && len[2] && len[3] &&
-         len[4];
+  return len[1] == len[3] && len[2] == len[4] && len[1] && len[2];
 }
 
 inline void Append(const std::vector<int> &a,
