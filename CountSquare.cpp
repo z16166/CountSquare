@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <format>
+#include <assert.h>
 
 static constexpr int N = 10;
 static constexpr int e[N] = {3, 3, 3, 3, 4, 4, 7, 7, 7, 7}; // 'e' means edge
@@ -40,8 +41,10 @@ inline int Compare(const std::vector<int> &a, const std::vector<int> &b) {
         return -1;
       else if (size1 < size2)
         return 1;
-      else
+      else {
+        assert(!memcmp(&a[0], &b[0], size1 * sizeof(int)));
         return 0;
+      }
     }
   }
 }
