@@ -32,3 +32,92 @@ a和b谁在前面，取决于a、b内的最短木棍、最长木棍的长度。�
 c和d谁在前，是类似的。
 
 二、如果矩形是正方形，那么到底是a、b在前，还是c、d在前，直接比较a+b、c+d的单根木棍的平均长度，平均长度短的那组对边在前。
+
+结果：
+
+3 x 3
+        sorted solution 1: 3-3-3-3
+3 x 4
+        sorted solution 2: 3-3-4-4
+3 x 7
+        sorted solution 3: 3-3-34-34
+        sorted solution 4: 3-3-34-7
+        sorted solution 5: 3-3-7-7
+3 x 10
+        sorted solution 6: 3-3-37-37
+3 x 11
+        sorted solution 7: 3-3-47-47
+3 x 14
+        sorted solution 8: 3-3-3344-77
+        sorted solution 9: 3-3-347-347
+        sorted solution 10: 3-3-347-77
+        sorted solution 11: 3-3-77-77
+3 x 17
+        sorted solution 12: 3-3-377-377
+3 x 18
+        sorted solution 13: 3-3-477-477
+3 x 21
+        sorted solution 14: 3-3-33447-777
+        sorted solution 15: 3-3-3477-3477
+4 x 6
+        sorted solution 16: 4-4-33-33
+4 x 7
+        sorted solution 17: 4-4-7-7
+4 x 10
+        sorted solution 18: 4-4-37-37
+4 x 13
+        sorted solution 19: 4-4-337-337
+4 x 14
+        sorted solution 20: 4-4-77-77
+4 x 17
+        sorted solution 21: 4-4-377-377
+4 x 20
+        sorted solution 22: 4-4-3377-3377
+6 x 7
+        sorted solution 23: 33-33-7-7
+6 x 11
+        sorted solution 24: 33-33-47-47
+6 x 14
+        sorted solution 25: 33-33-77-77
+6 x 18
+        sorted solution 26: 33-33-477-477
+7 x 7
+        sorted solution 27: 34-34-7-7
+        sorted solution 28: 34-7-34-7
+        sorted solution 29: 34-7-7-7
+        sorted solution 30: 7-7-7-7
+7 x 10
+        sorted solution 31: 34-34-37-37
+        sorted solution 32: 34-7-334-37
+        sorted solution 33: 34-7-37-37
+        sorted solution 34: 7-7-334-334
+        sorted solution 35: 7-7-334-37
+        sorted solution 36: 7-7-37-37
+7 x 11
+        sorted solution 37: 7-7-47-47
+7 x 13
+        sorted solution 38: 7-7-337-337
+7 x 14
+        sorted solution 39: 34-34-77-77
+        sorted solution 40: 34-7-347-77
+        sorted solution 41: 7-7-3344-77
+        sorted solution 42: 7-7-347-347
+7 x 17
+        sorted solution 43: 34-34-377-377
+        sorted solution 44: 34-7-3347-377
+        sorted solution 45: 7-7-33344-377
+        sorted solution 46: 7-7-3347-3347
+10 x 10
+        sorted solution 47: 37-37-37-37
+10 x 11
+        sorted solution 48: 37-37-47-47
+10 x 14
+        sorted solution 49: 334-334-77-77
+        sorted solution 50: 334-37-347-77
+        sorted solution 51: 37-37-3344-77
+        sorted solution 52: 37-37-347-347
+11 x 13
+        sorted solution 53: 47-47-337-337
+total solutions: 53
+
+Execution time: 0.182 s
