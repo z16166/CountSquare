@@ -1,9 +1,9 @@
 #include <algorithm>
+#include <assert.h>
+#include <format>
 #include <set>
 #include <string>
 #include <vector>
-#include <format>
-#include <assert.h>
 
 static constexpr int N = 10;
 static constexpr int e[N] = {3, 3, 3, 3, 4, 4, 7, 7, 7, 7}; // 'e' means edge
@@ -158,5 +158,8 @@ void DFS(int k) {
 int main() {
   DFS(0);
   printf("total solutions: %zu\n", solutions.size());
+  for (const auto &i : solutions)
+    printf("%s\n", i.c_str());
+
   return 0;
 }
