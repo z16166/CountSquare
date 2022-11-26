@@ -85,19 +85,15 @@ inline bool IsDuplicate() {
     Merge(s[2], s[4], r);
     Merge(s[1], s[3], r);
   } else {
-    for (int k = 1; k <= 3; ++k) {
-      for (int j = k + 1; j <= 4; ++j) {
-        const auto cmp = Compare(s[k], s[j]);
-        switch (cmp) {
-        case 1:
-          s[k].swap(s[j]);
-          break;
-        }
-      }
+    const auto size1 = s[1].size() + s[3].size();
+    const auto size2 = s[2].size() + s[4].size();
+    if (size1 >= size2) {
+      Merge(s[1], s[3], r);
+      Merge(s[2], s[4], r);
+    } else if (size1 < size2) {
+      Merge(s[2], s[4], r);
+      Merge(s[1], s[3], r);
     }
-
-    for (int k = 1; k <= 4; ++k)
-      Append(s[k], r);
   }
 
   std::string h;
