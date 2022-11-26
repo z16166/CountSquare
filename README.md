@@ -35,6 +35,7 @@ c和d谁在前，是类似的。
 
 结果：
 
+```
 3 x 3
         sorted solution 1: 3-3-3-3
 3 x 4
@@ -121,3 +122,5 @@ c和d谁在前，是类似的。
 total solutions: 53
 
 Execution time: 0.182 s
+```
+
